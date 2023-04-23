@@ -1,0 +1,18 @@
+step1: sudo apt-get update
+step2:sudo apt-get install linux-headers-$(uname -r)
+step3: mkdir -/dummy-driver
+step4:cd /home/prashant/dummy-driver
+step5:nano dummy.c(write the code of driver in it )
+step6:nano Makefile 
+step7: make
+step8:sudo insmod /home/prashant/dummy-driver/dummy.ko
+step9:lsmod | grep dummy
+step10:sudo dmesg
+step11:nano test.c
+step12:gcc -o test test.c
+step13:lsmod | grep dummy
+step14:sudo insmod dummy.ko
+step15:sudo mknod /dev/dummy c 238 0
+step16:sudo chmod 666 /dev/dummy 
+step17:sudo ./test
+

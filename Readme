@@ -1,0 +1,69 @@
+Dummy Device Driver
+
+This is a simple Linux kernel module that creates a character device driver called "dummy". The driver allows you to write and read data to and from the device, simulating a real device.
+
+
+Installation
+
+
+Before installing the driver, make sure that you have the necessary build tools and kernel headers installed on your system. You can install them with the following command:
+
+command 1 : sudo apt-get update
+command 2 : sudo apt-get install linux-headers-$(uname -r)
+
+To build and install the driver, follow these steps:
+
+Clone the repository or download the source code:
+git clone https://github.com/prashant8369/dummy-driver.git
+
+command 3: mkdir -/dummy-driver
+command 4 : cd /home/prashant/dummy-driver
+
+command 5 : nano dummy.c
+command 6 : nano Makefile
+
+Build the driver using :
+command 7 : make 
+ 
+
+Load the driver into the kernel:
+command 8 : sudo insmod dummy.ko
+
+Check if the driver was loaded successfully:
+ command 9 : sudo dmesg | tail
+You should see a message that says "Dummy driver: Registered successfully with major number 238".
+
+
+Create a device file for the driver:
+
+command 10 :sudo mknod /dev/dummy c 238 0
+command 11 :sudo chmod 666 /dev/dummy
+
+Verify that the device file was created successfully:
+command 12:ls -l /dev/dummy
+
+You should see a line that says something like this:
+crw-rw-rw- 1 root root 238, 0 Apr 23 12:47 /dev/dummy
+
+Usage
+
+To use the dummy driver, you can write and read data to and from the device file (/dev/dummy). Here's an example program (test.c) that writes a message to the driver and then reads it back:
+
+command 13 : nano test.c
+command 14 : gcc -o test test.c
+command 15 : sudo ./test
+
+Uninstallation
+
+Remove the device file:
+
+command 16 :sudo rm /dev/dummy
+
+Unload the driver from the kernel:
+
+command 17 : sudo rmmod dummy
+
+License
+
+This driver is released under the MIT License. See LICENSE file for more details.
+
