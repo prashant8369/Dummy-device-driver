@@ -14,7 +14,7 @@ command 2 : sudo apt-get install linux-headers-$(uname -r)
 To build and install the driver, follow these steps:
 
 Clone the repository or download the source code:
-git clone https://github.com/prashant8369/dummy-driver.git
+git clone https://github.com/prashant8369/dummy-device-driver.git
 
 command 3: mkdir -/dummy-driver
 command 4 : cd /home/prashant/dummy-driver
